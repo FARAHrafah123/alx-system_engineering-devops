@@ -7,5 +7,5 @@ frontend farah_fronend_https
 
 backend farah_backend
         balance roundrobin
-        server 378743-web-01 54.146.56.232:80 check
-        server 378743-web-02 34.207.58.85:80 check
+         server 378743-web-01 34.198.248.145:80 check
+        server 378743-web-02 34.198.248.145:80 check
