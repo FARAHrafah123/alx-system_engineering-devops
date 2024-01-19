@@ -1,16 +1,14 @@
 #!/usr/bin/python3
-"""Get the number of subscribers for a subreddit."""
 import requests
 
 
 def number_of_subscribers(subreddit):
-    """Get the number of subscribers for a subreddit."""
-    url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
-    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'}
-
-    try:
-        response = requests.get(url, headers=headers)
-        data = response.json()
-        return data.get('data', {}).get('subscribers', 0)
-    except requests.exceptions.RequestException as e:
-        return 0
+    url = 'https://www.reddit.com/r/{}/about.json'.format(subreddit)
+    headers = headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0;\
+                         rv:68.0) Gecko/20100101 FirefoxFirefox/68.0'}
+    with requests.session() as client:
+        info = client.get(url, headers=headers, allow_redirects=False).json()
+        try:
+            return info.get('data', {}).get('subscribers', 0)
+        except Exception:
+            return 0
