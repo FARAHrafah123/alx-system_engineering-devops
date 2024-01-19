@@ -4,7 +4,7 @@ import requests
 def number_of_subscribers(subreddit):
     """Get the number of subscribers for a subreddit."""
     url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
-    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'}
+    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'}
 
     try:
         print("URL de la requête : {}".format(url))
