@@ -22,3 +22,4 @@ def top_ten(subreddit):
             print(topic.get("data").get("title"))
     else:
         print("None")
+
