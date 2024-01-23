@@ -51,6 +51,21 @@ server {
                 proxy_pass http://localhost:5001/number_odd_or_even/;
                 proxy_redirect off;
         }
+ # serve /api/ route on AirBnB_clone_v3
+        location /api/ {
+                proxy_pass http://localhost:5002/api/;
+                proxy_redirect off;
+        }
+ # config /2-hbnb route on AirBnB_clone_v4
+        location / {
+                proxy_pass http://localhost:5003/2-hbnb;
+                try_files $uri $uri/ =404;
+        }
+
+        # serve /static/ route on AirBnB_clone_v4
+        location /static/ {
+                alias web_dynamic/static/;
+        }
 
 
         # Note: You should disable gzip for SSL traffic.
